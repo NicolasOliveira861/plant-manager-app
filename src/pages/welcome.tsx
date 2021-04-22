@@ -6,37 +6,46 @@ import {
   TouchableOpacity,
   StyleSheet,
   Platform,
+  Dimensions,
+  View,
 } from "react-native";
-
-import Button from "../components/Button";
+import { Feather } from "@expo/vector-icons";
 import wateringImg from "../assets/watering.png";
 import colors from "../styles/colors";
+import fonts from "../styles/fonts";
+import { useNavigation } from "@react-navigation/core";
 
 export function Welcome() {
-  // const [visible, setVisible] = useState(false);
+  const navigation = useNavigation();
 
-  // function handleVisibility() {
-  //   setVisible(true);
-  // }
+  function handleStart() {
+    navigation.navigate("UserIdentification");
+  }
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.title}>
-        Gerencie {"\n"}
-        suas plantas {"\n"}
-        de forma fácil
-      </Text>
+      <View style={styles.wrapper}>
+        <Text style={styles.title}>
+          Gerencie {"\n"}
+          suas plantas de{"\n"}
+          forma fácil
+        </Text>
 
-      {/* {visible &&  */}
-      <Image source={wateringImg} style={styles.img} />
-      {/* } */}
+        <Image source={wateringImg} style={styles.img} resizeMode="contain" />
 
-      <Text style={styles.subtitle}>
-        Não esqueça mais de regar suas plantas. Nós cuidamos de lembrar você
-        sempre que precisar.
-      </Text>
+        <Text style={styles.subtitle}>
+          Não esqueça mais de regar suas plantas. Nós cuidamos de lembrar você
+          sempre que precisar.
+        </Text>
 
-      <Button title=">" /*onPress={handleVisibility}*/ />
+        <TouchableOpacity
+          style={styles.button}
+          activeOpacity={0.7}
+          onPress={handleStart}
+        >
+          <Feather name="chevron-right" style={styles.btnIcon} />
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 }
@@ -44,12 +53,19 @@ export function Welcome() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "space-between",
+    paddingHorizontal: 16,
     paddingTop: Platform.OS === "android" ? 25 : 0,
   },
 
+  wrapper: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "space-around",
+  },
+
   title: {
+    fontFamily: fonts.heading,
+    lineHeight: 38,
     fontSize: 32,
     fontWeight: "bold",
     textAlign: "center",
@@ -58,6 +74,7 @@ const styles = StyleSheet.create({
   },
 
   subtitle: {
+    fontFamily: fonts.text,
     textAlign: "center",
     fontSize: 18,
     paddingHorizontal: 20,
@@ -65,7 +82,21 @@ const styles = StyleSheet.create({
   },
 
   img: {
-    width: 292,
-    height: 284,
+    height: Dimensions.get("window").width * 0.7,
+  },
+
+  button: {
+    backgroundColor: colors.green,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 16,
+    marginBottom: Platform.OS === "android" ? 24 : 10,
+    height: 56,
+    width: 56,
+  },
+
+  btnIcon: {
+    fontSize: 26,
+    color: colors.white,
   },
 });
