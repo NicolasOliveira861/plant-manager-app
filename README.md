@@ -7,6 +7,9 @@ To run this project and see the different visual features that we added during t
 - Expo-cli
 - Android or IOS emulator
 
-<h3>First, you'll have to run <code>yarn</code> in the terminal of your project, to install the node_modules that I used.</h3>
+First, you'll have to run <code>yarn</code> in the terminal of your project, to install the node_modules that I used.
 
-<h3>Before running an <code>expo start</code>, it's necessary to have the expo-cli installed and install all the dependencies used in the application.</h3>
+After that, run the following code in another terminal: <code>json-server ./src/services/server.json --host 192.168.0.6 --port 3333 -delay 
+700</code>
+
+Before running an <code>expo start</code>, it's necessary to have the expo-cli installed and install all the dependencies used in the application (open the packages.json 
