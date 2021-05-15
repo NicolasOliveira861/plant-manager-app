@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "plant-manager",
-    "slug": "plant-manager",
+    "name": "plant-manager-app",
+    "slug": "plant-manager-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -23,10 +23,13 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.nicolasoliveira861.plantmanagerapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "description": "React Native project designed to manage your plants!",
+    "githubUrl": "https://github.com/NicolasOliveira861/plant-manager-app"
   }
 }
